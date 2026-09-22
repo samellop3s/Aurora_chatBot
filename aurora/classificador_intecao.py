@@ -16,4 +16,10 @@ class ClassificadorIntecao:
     def treinar(self):
         X = self.vetorizador.fit_transform(frases)
         self.modelo.fit(X, rotulos)
+    
+        #aqui estamos criando um metodo de previsão, ele vai prever a intenção do usuário
+    def prever(self, frase):
+        X_nova = self.vetorizador.transform([frase])
+        return self.modelo.predict(X_nova)[0]
+
         
