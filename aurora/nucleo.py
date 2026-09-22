@@ -29,4 +29,5 @@ if __name__ == "__main__":
 
 c = ClassificadorIntecao()
 c.treinar()
-print("treinou sem erro!")
+resultado = c.prever("opa, tudo boa?")
+print(resultado)
