@@ -15,6 +15,8 @@ class Aurora:
     def __init__(self, nome: str = "Aurora"):
         self.nome = nome
         self.historico: list[Interacao] = []
+        self.classificador = ClassificadorIntecao()
+        self.classificador.treinar()
     
     def responder(self, pergunta: str) -> str:
         #Como é a primeira versão ainda não tera IA. com a implementação do embeddings vai ter essa alteração
@@ -24,10 +26,6 @@ class Aurora:
     
 if __name__ == "__main__":
     aurora = Aurora()
+    print(aurora.responder("Quem é você?"))
     print(aurora.responder("Ola Aurora como voce esta hoje ? "))
     print(f"Total de interações registradas: {len(aurora.historico)}")
-
-c = ClassificadorIntecao()
-c.treinar()
-resultado = c.prever("opa, tudo boa?")
-print(resultado)
