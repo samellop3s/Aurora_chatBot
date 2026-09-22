@@ -28,3 +28,5 @@ if __name__ == "__main__":
     print(f"Total de interações registradas: {len(aurora.historico)}")
 
 c = ClassificadorIntecao()
+c.treinar()
+print("treinou sem erro!")
