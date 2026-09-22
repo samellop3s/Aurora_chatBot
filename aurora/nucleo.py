@@ -24,5 +24,5 @@ class Aurora:
     
 if __name__ == "__main__":
     aurora = Aurora()
-    print(aurora.responder("Quem é você? "))
+    print(aurora.responder("Ola Aurora como voce esta hoje ? "))
     print(f"Total de interações registradas: {len(aurora.historico)}")
