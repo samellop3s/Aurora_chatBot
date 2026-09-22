@@ -19,13 +19,19 @@ class Aurora:
         self.classificador.treinar()
     
     def responder(self, pergunta: str) -> str:
-        #Como é a primeira versão ainda não tera IA. com a implementação do embeddings vai ter essa alteração
-        resposta = f"Você peruntou: '{pergunta}'. Ainda não consigo te responder com total certeza, me faça essa pergunta novamente mais tarde!."
-        self.historico.append(Interacao(pergunta=pergunta, resposta=resposta))
-        return resposta
+        intencao = self.classificador.prever(pergunta)
+        respostas_padrao = {
+            "saudacao": f"Olá! me chamo {self.nome}, Como posso ajudar você hoje?",
+            "pergunta_tecnica": "Eu ainda não tenho capacidade de responder perguntas técnicas, mas estou aprendendo!",
+            "despedida": "Até logo!"
+        }
+        reposta = respostas_padrao[intencao]
+        self.historico.append(Interacao(pergunta=pergunta, resposta=reposta))
+        return reposta
     
 if __name__ == "__main__":
     aurora = Aurora()
-    print(aurora.responder("Quem é você?"))
-    print(aurora.responder("Ola Aurora como voce esta hoje ? "))
+    print(aurora.responder("Bom dia"))
+    print(aurora.responder("O que é Deep Learning?"))
+    print(aurora.responder("Tchau"))
     print(f"Total de interações registradas: {len(aurora.historico)}")
