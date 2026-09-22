@@ -1,5 +1,5 @@
 #Núcleo do assistente Aurora - versão 0.1 (só a estrutura!!).
-
+from classificador_intecao import ClassificadorIntecao
 from dataclasses import dataclass, field
 from datetime import datetime
 
@@ -26,3 +26,5 @@ if __name__ == "__main__":
     aurora = Aurora()
     print(aurora.responder("Ola Aurora como voce esta hoje ? "))
     print(f"Total de interações registradas: {len(aurora.historico)}")
+
+c = ClassificadorIntecao()
